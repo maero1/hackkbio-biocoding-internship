@@ -1,1 +1,14 @@
 
+'''
+Maero_Dict = {
+    "Name": "Oghenemaero Oghale Olori",
+    "Slack Username": "@Maero",
+    "Email": "oghenemaero.oloripgs@stu.cu.edu.ng",
+    "Hobby": "Coding and Learning",
+    "Country": "Nigeria",
+    "Disciplene": "Bioinformatics",
+    "Preferred_Language": "Python"
+    }
+print (Maero_Dict)
+'''
+
