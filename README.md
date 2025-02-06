@@ -1,2 +1,2 @@
 # hackkbio-biocoding-internship
-This repository contains the codes fore ach task and project from the Hackbio Biocoding Internship
+This repository contains the codes for each task and project from the Hackbio Biocoding Internship
