@@ -1,0 +1,56 @@
+#The task is to Write a function for translating DNA to protein
+
+
+def dna (seq):
+    
+    #seq = input("Enter the DNA").upper()                       <- This is to allow the user to type in a codon
+    
+    if seq == "UUU" or seq == "UUC":
+        print ("The protein is Phenylalanine")
+    elif seq == "UUA" or seq == "UUG" or seq == "CUU" or seq == "CUC" or seq == "CUA" or seq == "CUG":
+        print ("The protein is Leucine")
+    elif seq == "AUU" or seq == "AUC" or seq == "AUA":
+        print ("The protein is Isoleucine")
+    elif seq == "AUG":
+        print ("The protein is Methionine: The start codon")
+    elif seq == "GUU" or seq == "GUC" or seq == "GUA" or seq == "GUG":
+        print ("The protein is Valine")
+    elif seq == "UCU" or seq == "UCC" or seq == "UCA" or seq == "UCG" or seq == "AGU" or seq == "AGC":
+        print ("The protein is Serine")
+    elif seq == "CCU" or seq == "CCC" or seq == "CCA" or seq == "CCG":
+        print ("The protein is Proline")
+    elif seq == "ACU" or seq == "ACC" or seq == "ACA" or seq == "ACG":
+        print ("The protein is Threonine")
+    elif seq == "GCU" or seq == "GCC" or seq == "GCA" or seq == "GCG":
+        print ("The protein is Alanine")
+    elif seq == "CGU" or seq == "CGC" or seq == "CGA" or seq == "CGG" or seq == "AGA" or seq == "AGG":
+        print ("The protein is Arginine")
+    elif seq == "GGU" or seq == "GGC" or seq == "GGA" or seq == "GGG":
+        print ("The protein is Glycine")
+    elif seq == "UAU" or seq == "UAC":
+        print ("The protein is Tyrosine")
+    elif seq == "UAA" or seq == "UAG" or seq == "UGA":
+        print ("The protein is STOP")
+    elif seq == "CAU" or seq == "CAC":
+        print ("The protein is Histidine")
+    elif seq == "CAA" or seq == "CAG":
+        print ("The protein is Glutamine")
+    elif seq == "AAU" or seq == "AAC":
+        print ("The protein is Asparagine")
+    elif seq == "AAA" or seq == "AAG":
+        print ("The protein is Lysine")
+    elif seq == "GAU" or seq == "GAC":
+        print ("The protein is Aspartic Acid")
+    elif seq == "GAA" or seq == "GAG":
+        print ("The protein is Glutamic Acid")
+    elif seq == "UGU" or seq == "UGC":
+        print ("The protein is Cysteine")
+    elif seq == "UGG":
+        print ("The protein is Tryptophan")
+    else:
+        print ("Please input a 3 letter codon with the combination of letters A, U, G and C")
+    return seq
+
+#seqA = input("Enter the DNA").upper()      <- The user can input the code here
+dna ("UGC")                                 # <- Or the programmer can include the specific codon here
+print (dna)
