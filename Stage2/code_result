@@ -1,0 +1,17 @@
+The amino acid with the highest impact on protein structure and function is G with 1307 occurrences.
+Amino acids with more than 100 occurrences:
+Initial_AA
+G    1307
+L     739
+A     640
+P     470
+V     380
+R     227
+I     212
+Y     172
+D     171
+F     169
+S     158
+T     126
+W     108
+Name: count, dtype: int64
