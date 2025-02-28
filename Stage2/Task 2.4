@@ -1,0 +1,47 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Step 1: Load the datasets
+sift_df = pd.read_csv("external_data/sift.csv")
+foldx_df = pd.read_csv("external_data/foldx.csv")
+
+# Create specific_Protein_aa column
+sift_df["specific_Protein_aa"] = sift_df["Protein"] + "_" + sift_df["Amino_Acid"]
+foldx_df["specific_Protein_aa"] = foldx_df["Protein"] + "_" + foldx_df["Amino_Acid"]
+
+# Merge datasets on specific_Protein_aa
+merged_df = pd.merge(sift_df, foldx_df, on="specific_Protein_aa", suffixes=("_sift", "_foldx"))
+
+# Find mutations affecting both structure and function
+deleterious_mutations = merged_df[(merged_df["sift_Score"] < 0.05) & (merged_df["foldX_Score"] > 2)]
+
+# Extract the first amino acid from Amino_Acid column
+deleterious_mutations["Initial_AA"] = deleterious_mutations["Amino_Acid_sift"].str[0]
+
+# Generate a frequency table
+aa_frequency = deleterious_mutations["Initial_AA"].value_counts()
+
+# Plot bar chart
+plt.figure(figsize=(10,5))
+sns.barplot(x=aa_frequency.index, y=aa_frequency.values, palette="viridis")
+plt.xlabel("Amino Acid")
+plt.ylabel("Frequency")
+plt.title("Frequency of Amino Acids with High Impact Mutations")
+plt.show()
+
+# Plot pie chart
+plt.figure(figsize=(8,8))
+plt.pie(aa_frequency, labels=aa_frequency.index, autopct='%1.1f%%', colors=sns.color_palette("viridis", len(aa_frequency)))
+plt.title("Distribution of High Impact Amino Acids")
+plt.show()
+
+# Analyze the most frequent high-impact amino acid
+most_impactful_aa = aa_frequency.idxmax()
+impactful_count = aa_frequency.max()
+print(f"The amino acid with the highest impact on protein structure and function is {most_impactful_aa} with {impactful_count} occurrences.")
+
+# Analyze structural and functional properties of amino acids occurring more than 100 times
+high_occurrence_aa = aa_frequency[aa_frequency > 100]
+print("Amino acids with more than 100 occurrences:")
+print(high_occurrence_aa)
